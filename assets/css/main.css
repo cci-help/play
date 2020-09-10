@@ -1973,6 +1973,16 @@ input, select, textarea {
 			width: auto;
 		}
 
+		#pluginlist {
+			font-size:0.8em;
+			line-height:1.2em;
+		}
+
+		#playerlist {
+			font-size:0.8em;
+			line-height:1.2em;
+		}
+
 /* Icons */
 
 	.icon {
@@ -2097,6 +2107,12 @@ input, select, textarea {
 					color:#d4d4d4;
 					font-weight:600;
 				}
+
+				/* Custom style6 is for map section */
+				.wrapper.style6 {
+					background-color: #eae6de;
+				}
+				
 		
 
 /* Nav */
