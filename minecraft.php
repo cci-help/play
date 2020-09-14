@@ -5,6 +5,7 @@
 <html lang="en">
 
 <head>
+
    <title>Play - College of Communication and Information</title>
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,7 +49,7 @@
    <meta name="twitter:image" content="images/icons/fsu-seal-160.png">
    <link rel="canonical" href="https://play.cci.fsu.edu/">
    <link rel="shortlink" href="https://play.cci.fsu.edu/">
-
+   <script src="assets/js/jquery.min.js"></script>
 
 
 </head>
@@ -70,42 +71,51 @@
       <div class="container">
          <div class="row">
             <div class="col-4 col-5-large col-12-medium">
-               <span class="icon solid header fa-gamepad"></span>
+               <!-- <span class="icon solid header fa-gamepad"></span> -->
+
+               <img src="images/minecraft-logo.png" style="width:200px;" alt="Minecraft icon">
+
             </div>
             <div class="col-8 col-7-large col-12-medium">
                <header>
-                  <h1>Welcome to Play @ CCI!</h1>
+                  <h1>Let's Play Minecraft!</h1>
                </header>
-               <p>We're all stuck inside and could use some playtime. Check out this page for games hosted by the College of Communication and Information!</p>
+               <p>College of Communication & Information Minecraft Server</p>
             </div>
          </div>
       </div>
    </article>
-   <article id="games" class="wrapper style2">
+   <article id="gameinfo" class="wrapper style2">
       <div class="container">
-         <header>
-            <h2>Current Games:</h2>
-         </header>
-         <div class="row aln-center">
-            <div class="col-4 col-6-medium col-12-small">
-               <section class="box style1" id="minecraft">
-                  <span class="image feature"><img src="images/minecraft-logo-med.png"></span>
-                  <h3>Minecraft</h3>
-                  <p>Join your fellow CCI faculty, staff, and students in an open world!</p>
-                  <p>
-                     <strong>Ready to play?</strong>
-                     <br><a class="button alt" href="minecraft.php" style="text-shadow:none;">Let's craft!</a>
-                  </p>
-                  </p>
-               </section>
+        <div class="row aln-center" id="loadingzone">
+         <!-- <script type="text/javascript" src="assets/js/jquery.min.js"></script>           -->
+         <script type="text/javascript">
+            // Check if the page has loaded completely                                         
+            $(document).ready( function() { 
+               // Replace contents of #loadingzone div with makequery.php
+            $('#loadingzone').hide().fadeIn('slow');
+            $('#loadingzone').load('makequery.php');
+            }); 
+         </script> 
+         <div class="col-4 col-6-medium col-12-small">
+         <section class="box style1" id="minecraft">
+         <h4>Communicating with server</h4>
+         <img src="images/loading2.gif">
+         </section>
+         </div>     
             </div>
-         </div>
       </div>
-   </article>
+      
    </article>
 
-   
-   </article>
+
+   <!-- Minecraft Map -->
+<?php 
+require('functions.php');
+// Will only show map if server is live
+getServerMap();
+?>
+  
   <!-- TOS and Usage Disclaimer -->
    <article id="disclaimer" class="wrapper style3">
 
@@ -146,7 +156,6 @@
       </div>
    </article>
    <!-- Scripts -->
-   <script src="assets/js/jquery.min.js"></script>
    <script src="assets/js/jquery.scrolly.min.js"></script>
    <script src="assets/js/browser.min.js"></script>
    <script src="assets/js/breakpoints.min.js"></script>

@@ -76,38 +76,116 @@
                <header>
                   <h1>Welcome to Play @ CCI!</h1>
                </header>
-               <p>We're all stuck inside and could use some playtime. Check out this page for games hosted by the College of Communication and Information!</p>
+               <p>College of Communication & Information Minecraft Server</p>
             </div>
          </div>
       </div>
    </article>
-   <article id="games" class="wrapper style2">
+   <article id="gameinfo" class="wrapper style2">
       <div class="container">
-         <header>
-            <h2>Current Games:</h2>
-         </header>
-         <div class="row aln-center">
             <div class="col-4 col-6-medium col-12-small">
                <section class="box style1" id="minecraft">
                   <span class="image feature"><img src="images/minecraft-logo-med.png"></span>
                   <h3>Minecraft</h3>
                   <p>Join your fellow CCI faculty, staff, and students in an open world!</p>
-                  <p>
-                     <strong>Ready to play?</strong>
-                     <br><a class="button alt" href="minecraft.php" style="text-shadow:none;">Let's craft!</a>
-                  </p>
+                  <?php
+                     // Require the query php file to get info from Minecraft server and define server address
+                     require_once('query.php');
+                     $server = new Query('play.cci.fsu.edu');
+
+                     // Connect to Minecraft server and print details
+                     if ($server->connect()) {
+                     $info = $server->get_info();
+                     echo "<ul>";
+                     echo "<li><strong>Server Status</strong>: "."<span style=\"color:green\">Online</span>";
+                     echo "<li><strong>Server Address</strong>: "."play.cci.fsu.edu";
+
+                     echo "<li><strong>Server Version</strong>: ";
+                     print_r($info[version]);
+                     echo " (Java, Vanilla)</li>";
+
+                     echo "<li><strong>Current Players</strong>: ";
+                     print_r($info[numplayers]);
+                     echo "/";
+                     print_r($info[maxplayers]);
+                     echo "</li>";
+
+                     //Plugins are stored as semicolon separated string
+                     //We need to explode them into their own array called pluginList and then print them on the page in a nested list
+                     echo "<li><strong>Plugins</strong>: ";
+                     $plugins = "$info[plugins];";
+                     $pluginList = explode(';', $plugins);
+                     echo "<ul id=\"pluginlist\">";
+                     foreach ($pluginList as &$plugin) {
+                        echo "<li>".$plugin."</li>";
+                     }
+                     echo "</ul>";
+                     echo "</li>";
+                     echo "</ul>";
+                     } else {
+                        echo "<ul>";
+                        echo "<li><strong>Server Status</strong>: "."<span style=\"color:red\">Offline</span><br>";
+                        echo "Come back next time!";
+                        echo "</ul>";
+
+                     }
+                     // Print list of players, if any
+                     if(!empty($info[players])) {
+                        echo "<ul id=\"playerlist\"><li><strong>Who's Online:</strong></li>";
+                        $playerList = $info[players];
+                        for ($i = 0; $i < count($playerList); $i++) {
+                           echo "<li>$playerList[$i]</li>";
+                       }
+                       echo "</ul>";
+                        
+                     }
+                     
+
+               ?>
                   </p>
                </section>
             </div>
-         </div>
+         
       </div>
    </article>
    </article>
 
-   
+   <!-- Minecraft Map -->
+
+   <article id="map" class="wrapper style6">
+
+      <div class="container large">
+         <h3>Minecraft Map</h3>
+         <?php 
+         if ($server->connect()) {
+
+         echo "<div style=\"border-radius: 0; width: 100%; overflow: hidden;\">";
+         echo "<iframe src=\"https://play.cci.fsu.edu/map/?zoom=5\" width=\"100%\" height=\"650\">";
+         echo "<p>Your browser does not support iframes.</p>";
+         echo "</iframe>";
+         echo "</div>";
+
+
+         }
+         else {
+            echo "<p>The server is "."<span style=\"color:red\">offline</span>.<br>";
+            echo "Come back next time!</p>";
+            echo "<br>";
+         }
+
+
+
+
+
+
+
+
+       ?>
+
+      </div>
    </article>
   <!-- TOS and Usage Disclaimer -->
-   <article id="disclaimer" class="wrapper style3">
+   <article id="disclaimer" class="wrapper style2">
 
       <div class="container medium">
          <br>
@@ -125,7 +203,7 @@
 
 
    <!-- Contact -->
-   <article id="contact" class="wrapper style2">
+   <article id="contact" class="wrapper style3">
 
       <div class="container medium">
          <hr />

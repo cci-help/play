@@ -86,7 +86,7 @@
          <header>
             <h2>Current Games:</h2>
          </header>
-         <div class="row aln-center">
+         <div class="row aln-center" id="loadingzone">
             <div class="col-4 col-6-medium col-12-small">
                <section class="box style1" id="minecraft">
                   <span class="image feature"><img src="images/minecraft-logo-med.png"></span>
@@ -94,7 +94,8 @@
                   <p>Join your fellow CCI faculty, staff, and students in an open world!</p>
                   <p>
                      <strong>Ready to play?</strong>
-                     <br><a class="button alt" href="minecraft.php" style="text-shadow:none;">Let's craft!</a>
+                     <script src="loadserver.js"></script>
+                     <br><a class="button alt" style="text-shadow:none;" onclick="loadServer()">Let's craft!</a>
                   </p>
                   </p>
                </section>

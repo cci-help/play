@@ -208,4 +208,6 @@ class Query {
 		return preg_replace('/[\x00-\x1F\x80-\xFF]./', '', $string);
 	}
 	
+
+
 }
