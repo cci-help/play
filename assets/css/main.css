@@ -237,12 +237,7 @@ input, select, textarea {
 			font-size: 1.25em;
 		}
 
-	.disclaimer {
-		font-size:0.8em;
-		font-style:italic;
-		text-align: justify;
-		/* font-family:monospace; */
-	}
+
 
 
 /* Container */
@@ -2143,6 +2138,13 @@ input, select, textarea {
 				}
 				
 		
+			/* Custom font size is for usage policy/disclaimer */
+			.disclaimer {
+				font-size:0.8em;
+				font-style:italic;
+				text-align: justify;
+				/* font-family:monospace; */
+			}
 
 /* Nav */
 

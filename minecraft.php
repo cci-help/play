@@ -113,11 +113,51 @@
 <?php 
 require('functions.php');
 // Will only show map if server is live
+// Creates its own article #map with container div
 getServerMap();
 ?>
-  
+
+
+<article id="instructions" class="wrapper style3">
+      <div class="container"><br><br>  
+         <header><h3>How to Connect</h3></header>
+      <div class="row aln-center">
+            <div class="col-4 col-6-medium col-12-small">
+               <section class="box style3" id="step1">
+                
+               <h3>Step 1</h3>
+               <h4>Get Minecraft</h4>
+               <p>You'll need to visit <a href="https://www.minecraft.net/en-us/store/minecraft-java-edition">the official Minecraft site</a> to purchase Minecraft and create an account if you don't already own the game.
+         </p><p>Please note that you will need the <u>Java version</u> of the game. Other versions of Minecraft cannot connect to our server.</p>
+
+               </section>
+            </div>
+
+            <div class="col-4 col-6-medium col-12-small">
+               <section class="box style3" id="step1">
+                  <h3>Step 2</h3>
+                  <h4>Setup Your Client</h4>
+               <p>Open Minecraft and look for the <u>Installations</u> tab at the top of launcher. We recommend creating a new installation for the CCI Server. Give it a name like "CCI", and select the version from the drop down list. </p><p><u>You must match the version number to the server's version listed above</u>. You may need to edit this installation from time to time to match the version of the server as it changes.</p>
+               </section>
+            </div>
+
+
+            <div class="col-4 col-6-medium col-12-small">
+               <section class="box style3" id="step1">
+                  <h3>Step 3</h3>
+                  <h4>Connect to the Server</h4>
+               <p>Back in the launcher, select your new installation from the drop down menu next to the PLAY button. Click play and that version Minecraft will launch.</p>
+         <p>When the game launches, select <u>Multiplayer</u> and then click the <u>Add Server</u> button. Give the server a friendly name like "CCI" and enter the server address listed above. Add the server and click <u>Join</u>!</p>
+               </section>
+            </div>
+         </div>
+         </div>
+   </article>
+
+
+
   <!-- TOS and Usage Disclaimer -->
-   <article id="disclaimer" class="wrapper style3">
+   <article id="disclaimer" class="wrapper style2" >
 
       <div class="container medium">
          <br>
@@ -135,7 +175,7 @@ getServerMap();
 
 
    <!-- Contact -->
-   <article id="contact" class="wrapper style2">
+   <article id="contact" class="wrapper style3">
 
       <div class="container medium">
          <hr />
